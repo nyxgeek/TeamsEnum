@@ -11,7 +11,7 @@ from teamsenum.auth import p_success, p_err, p_warn, p_normal, p_info
 from teamsenum.enum import TeamsUserEnumerator
 
 def banner(__version__):
-   print("""
+   print(r"""
  _______                       ______                       
 |__   __|                     |  ____|                      
    | | ___  __ _ _ __ ___  ___| |__   _ __  _   _ _ __ ___  
