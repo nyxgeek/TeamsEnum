@@ -32,7 +32,7 @@ CREATE TABLE `user_presence` (
   `scrape_date` date NOT NULL,
   `hh_period` tinyint unsigned NOT NULL,
   `qh_period` tinyint unsigned NOT NULL,
-  `session` varchar(32) DEFAULT NULL,
+  `session` varchar(8) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `idx_scrape_date` (`scrape_date`),
   KEY `idx_availability` (`availability`),
@@ -64,7 +64,7 @@ CREATE TABLE `user_info_all` (
   `scrape_time` time DEFAULT NULL,
   `scrape_date_unix` bigint DEFAULT NULL,
   `isOOO` tinyint(1) DEFAULT '0',
-  `session` varchar(32) DEFAULT NULL,
+  `session` varchar(8) DEFAULT NULL,
   PRIMARY KEY (`object_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -89,6 +89,64 @@ CREATE TABLE `user_ooo` (
   KEY `idx_user_date` (`teams_guid`,`scrape_date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `daily_stats_detailed`
+--
+
+DROP TABLE IF EXISTS `daily_stats_detailed`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `daily_stats_detailed` (
+  `date` date NOT NULL,
+  `hh_period` int NOT NULL,
+  `qh_period` int NOT NULL,
+  `r_available` int DEFAULT NULL,
+  `r_busy` int DEFAULT NULL,
+  `r_donotdisturb` int DEFAULT NULL,
+  `r_away` int DEFAULT NULL,
+  `r_offline` int DEFAULT NULL,
+  `r_ooocount` int DEFAULT NULL,
+  `total_users` int DEFAULT NULL,
+  `r_online` int DEFAULT NULL,
+  `p_available` float DEFAULT NULL,
+  `p_busy` float DEFAULT NULL,
+  `p_donotdisturb` float DEFAULT NULL,
+  `p_away` float DEFAULT NULL,
+  `p_offline` float DEFAULT NULL,
+  `p_ooocount` float DEFAULT NULL,
+  `p_online` float DEFAULT NULL,
+  PRIMARY KEY (`date`,`hh_period`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `daily_stats_summary`
+--
+
+DROP TABLE IF EXISTS `daily_stats_summary`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `daily_stats_summary` (
+  `date` date NOT NULL,
+  `total_users` int DEFAULT NULL,
+  `total_online` int DEFAULT NULL,
+  `r_available` int DEFAULT NULL,
+  `r_available2hr` int DEFAULT NULL,
+  `r_available4hr` int DEFAULT NULL,
+  `r_alwaysavailable` int DEFAULT NULL,
+  `r_alwaysoffline` int DEFAULT NULL,
+  `r_ooocount` int DEFAULT NULL,
+  `p_total_online` float DEFAULT NULL,
+  `p_available` float DEFAULT NULL,
+  `p_available2hr` float DEFAULT NULL,
+  `p_available4hr` float DEFAULT NULL,
+  `p_alwaysavailable` float DEFAULT NULL,
+  `p_alwaysoffline` float DEFAULT NULL,
+  `p_ooocount` float DEFAULT NULL,
+  PRIMARY KEY (`date`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -99,4 +157,4 @@ CREATE TABLE `user_ooo` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-02-22 12:37:18
+-- Dump completed on 2025-02-22 12:43:08
