@@ -4,6 +4,16 @@ User enumeration of Microsoft Teams users. TeamsEnum is a Python script that all
 
 It supports multiple authentication mechanisms and can be used with personal or corporate accounts.
 
+
+## WHAT THE FORK?
+- This is a fork, modded to log to a remote database
+- db.conf file specifies database parameters
+- OOO messages are logged
+- User Info for each unique user objectID is logged
+- Presence is logged
+- This fork was made to work with https://github.com/nyxgeek/icu
+
+
 ## Requirements
 
 - python3 >= 3.6
