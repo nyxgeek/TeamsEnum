@@ -32,7 +32,7 @@ CREATE TABLE `user_presence` (
   `scrape_date` date NOT NULL,
   `hh_period` tinyint unsigned NOT NULL,
   `qh_period` tinyint unsigned NOT NULL,
-  `session` varchar(8) DEFAULT NULL,
+  `session` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `idx_scrape_date` (`scrape_date`),
   KEY `idx_availability` (`availability`),
@@ -64,7 +64,7 @@ CREATE TABLE `user_info_all` (
   `scrape_time` time DEFAULT NULL,
   `scrape_date_unix` bigint DEFAULT NULL,
   `isOOO` tinyint(1) DEFAULT '0',
-  `session` varchar(8) DEFAULT NULL,
+  `session` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`object_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
