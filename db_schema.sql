@@ -19,7 +19,7 @@
 -- Table structure for table `user_presence`
 --
 
-DROP TABLE IF EXISTS `user_presence`;
+/*DROP TABLE IF EXISTS `user_presence`;*/
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user_presence` (
@@ -44,7 +44,7 @@ CREATE TABLE `user_presence` (
 -- Table structure for table `user_info_all`
 --
 
-DROP TABLE IF EXISTS `user_info_all`;
+/*DROP TABLE IF EXISTS `user_info_all`;*/
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user_info_all` (
@@ -73,7 +73,7 @@ CREATE TABLE `user_info_all` (
 -- Table structure for table `user_ooo`
 --
 
-DROP TABLE IF EXISTS `user_ooo`;
+/*DROP TABLE IF EXISTS `user_ooo`;*/
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user_ooo` (
@@ -94,7 +94,7 @@ CREATE TABLE `user_ooo` (
 -- Table structure for table `daily_stats_detailed`
 --
 
-DROP TABLE IF EXISTS `daily_stats_detailed`;
+/*DROP TABLE IF EXISTS `daily_stats_detailed`;*/
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `daily_stats_detailed` (
@@ -124,7 +124,7 @@ CREATE TABLE `daily_stats_detailed` (
 -- Table structure for table `daily_stats_summary`
 --
 
-DROP TABLE IF EXISTS `daily_stats_summary`;
+/*DROP TABLE IF EXISTS `daily_stats_summary`;*/
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `daily_stats_summary` (
