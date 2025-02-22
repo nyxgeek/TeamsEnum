@@ -6,13 +6,17 @@ It supports multiple authentication mechanisms and can be used with personal or 
 
 
 ## WHAT THE FORK?
+### Overview
 - This is a fork, modded to log to a remote database
 - db.conf file specifies database parameters
-- OOO messages are logged
-- User Info for each unique user objectID is logged
-- Presence is logged
+ - OOO messages are logged
+ - User Info for each unique user objectID is logged
+ - Presence is logged
+
+### ICU Integration
 - This fork was made to work with https://github.com/nyxgeek/icu
-- To populate summary tables, helper scripts need to be run with cron -- one hourly, one daily
+- To populate summary tables, helper scripts need to be run with cron -- one hourly, one daily (see cron.jobs file)
+- Must export summary tables as CSV to the location specified in ICU
 
 
 ## Requirements
