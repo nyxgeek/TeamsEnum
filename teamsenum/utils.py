@@ -174,7 +174,10 @@ def check_db_conf(file_path="db.conf"):
             "host": config['mysql']['host'],
             "user": config['mysql']['user'],
             "password": config['mysql']['password'],
-            "database": config['mysql']['database']
+            "database": config['mysql']['database'],
+            "presence_table": config['mysql']['presence_table'],
+            "ooo_table": config['mysql']['ooo_table'],
+            "user_info_table": config['mysql']['user_info_table']
         }
         return db_config
     except KeyError as e:
@@ -209,9 +212,10 @@ def log_ooo_db(db_config, teams_guid, raw_message):
         if connection.is_connected():
             cursor = connection.cursor()
 
+        ooo_table=db_config["ooo_table"]
         # SQL query to insert the OOO message
-        query = """
-            INSERT IGNORE INTO user_ooo_all (
+        query = f"""
+            INSERT IGNORE INTO {ooo_table} (
                 md5sum, teams_guid, scrape_date, scrape_time, scrape_date_unix, length, truncated, text
             ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
         """
@@ -356,9 +360,11 @@ def log_presence_db(db_config, teams_guid, availability, ooo_enabled, device, sc
         if connection.is_connected():
             cursor = connection.cursor()
 
+            presence_table=db_config["presence_table"]
+
             # SQL query to insert presence data
-            query = """
-                INSERT INTO user_presence_all (
+            query = f"""
+                INSERT INTO {presence_table} (
                     teams_guid,
                     availability,
                     ooo_enabled,
@@ -370,6 +376,7 @@ def log_presence_db(db_config, teams_guid, availability, ooo_enabled, device, sc
                     session
                 ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
             """
+
             # Execute query with provided values
             cursor.execute(query, (
                 teams_guid,
