@@ -12,6 +12,7 @@ It supports multiple authentication mechanisms and can be used with personal or 
 - User Info for each unique user objectID is logged
 - Presence is logged
 - This fork was made to work with https://github.com/nyxgeek/icu
+- To populate summary tables, helper scripts need to be run with cron -- one hourly, one daily
 
 
 ## Requirements
